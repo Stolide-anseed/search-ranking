@@ -1,0 +1,20 @@
+[paths]
+oof_candidates = "artifacts/reranker_candidates_oof.f"
+calibration = "data/calibration.f"
+output_dir = "artifacts/gte_scores"
+
+[model]
+model_id = "Alibaba-NLP/gte-multilingual-reranker-base"
+revision = "8215cf04918ba6f7b6a62bb44238ce2953d8831c"
+max_parameters = 1000000000
+max_length = 512
+batch_size_gpu = 32
+batch_size_cpu = 2
+local_files_only = false
+trust_remote_code = true
+remote_code_repo = "Alibaba-NLP/new-impl"
+remote_code_revision = "40ced75c3017eb27626c9d4ea981bde21a2662f4"
+
+[evaluation]
+depths = [30]
+alpha_grid = [0.0, 0.025, 0.05, 0.075, 0.10, 0.125, 0.15, 0.175, 0.20, 0.225, 0.25, 0.275, 0.30, 0.325, 0.35, 0.375, 0.40]

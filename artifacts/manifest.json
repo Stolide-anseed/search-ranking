@@ -1,0 +1,78 @@
+{
+  "pipeline": {
+    "candidate_top_k": 100,
+    "alpha": 0.25,
+    "rerank_depth": 30,
+    "retrieval": "BGE-M3 + BM25 chunks + char TF-IDF + tuned query-kNN",
+    "reranker": "GTE multilingual reranker base, zero-shot"
+  },
+  "models": {
+    "dense": {
+      "model_id": "BAAI/bge-m3",
+      "revision": "5617a9f61b028005a4858fdac845db406aefb181"
+    },
+    "reranker": {
+      "model_id": "Alibaba-NLP/gte-multilingual-reranker-base",
+      "revision": "8215cf04918ba6f7b6a62bb44238ce2953d8831c",
+      "remote_code_repo": "Alibaba-NLP/new-impl",
+      "remote_code_revision": "40ced75c3017eb27626c9d4ea981bde21a2662f4",
+      "parameters": 305959681
+    }
+  },
+  "metrics": {
+    "evaluation": "nested grouped 5-fold OOF",
+    "retrieval_map_at_10": 0.700449,
+    "reranked_map_at_10": 0.704632,
+    "reranked_recall_at_10": 0.945667,
+    "retrieval_recall_at_100": 0.993
+  },
+  "production_score_cache_identity": {
+    "schema_version": 2,
+    "model_id": "Alibaba-NLP/gte-multilingual-reranker-base",
+    "revision": "8215cf04918ba6f7b6a62bb44238ce2953d8831c",
+    "remote_code_repo": "Alibaba-NLP/new-impl",
+    "remote_code_revision": "40ced75c3017eb27626c9d4ea981bde21a2662f4",
+    "max_length": 512,
+    "view_schema_version": 1,
+    "candidate_count": 15000,
+    "candidate_text_sha256": "f64cf4d91f2f8664bf2cbc4cc8547696e16f838d9bef0c6e79fd6474cb5c3c5e"
+  },
+  "files": {
+    "production_scores.f": {
+      "bytes": 1809066,
+      "sha256": "525f17666940829ec719ca496348121a349fe1c1d739133afbf0a3eb2c73140d"
+    },
+    "query_knn_oof_features.f": {
+      "bytes": 33175498,
+      "sha256": "3105734faa71f514b3b420ca1afa72ba0d0bc17eb0d5a5254f519cca4477fdb6"
+    },
+    "reranker_candidates_oof.f": {
+      "bytes": 64892274,
+      "sha256": "7cc6e9da34c223492da0af5bb4c3e25349f3678e072d66c1de40bc11f366115c"
+    },
+    "retrieval_chunks.f": {
+      "bytes": 26048026,
+      "sha256": "41670160d8c3be74c0cec76ff73db0a581206e7d7461b914d2f5de4ffb32df6f"
+    },
+    "articles.f": {
+      "bytes": 3141418,
+      "sha256": "2f585ef7a4a9568412efc7cb30f210b122aed7dc57b893ba09774b8be7185ea7"
+    },
+    "calibration.f": {
+      "bytes": 39842,
+      "sha256": "efc6c58a121775095fbed5c9aeb30aa65165b4e3c33da2acbf839688ff719d72"
+    },
+    "test.f": {
+      "bytes": 35666,
+      "sha256": "d9857c0286a710d0fd43c0b1ce98564a4144463336b3a8d16be97ccf0ffd45cf"
+    },
+    "processed_articles.f": {
+      "bytes": 14795554,
+      "sha256": "9d3fcd0a56785d39201fc34ad86548bd2c21858e1895938dae0ca52467eb789b"
+    },
+    "article_blocks.f": {
+      "bytes": 22788066,
+      "sha256": "48a014b9c2dbfb2ad4924255ee91b6f7049e303cc8f5c84c45d3c6a6b5d1c782"
+    }
+  }
+}

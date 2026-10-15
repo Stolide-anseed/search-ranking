@@ -1,0 +1,17 @@
+{
+  "cache_identity": {
+    "candidate_count": 25000,
+    "candidate_text_sha256": "07216a279256913b9d3ae43279ae4219f306c603cd943b58e0abef2dfe53da78",
+    "max_length": 512,
+    "model_id": "Alibaba-NLP/gte-multilingual-reranker-base",
+    "remote_code_repo": "Alibaba-NLP/new-impl",
+    "remote_code_revision": "40ced75c3017eb27626c9d4ea981bde21a2662f4",
+    "revision": "8215cf04918ba6f7b6a62bb44238ce2953d8831c",
+    "schema_version": 2,
+    "view_schema_version": 1
+  },
+  "device": "cuda",
+  "model_id": "Alibaba-NLP/gte-multilingual-reranker-base",
+  "parameter_count": 305959681,
+  "revision": "8215cf04918ba6f7b6a62bb44238ce2953d8831c"
+}

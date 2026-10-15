@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+.idea/
+.venv/
+artifacts/retrieval/
+artifacts/gte_scores/*
+!artifacts/gte_scores/cross_encoder_scores.f
+!artifacts/gte_scores/model_manifest.json
+artifacts/oof_recomputed/
+artifacts/experiments/
+artifacts/rebuilt_production_scores.f

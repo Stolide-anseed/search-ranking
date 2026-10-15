@@ -1,0 +1,23 @@
+[paths]
+features = "artifacts/query_knn_oof_features.f"
+calibration = "data/calibration.f"
+baseline_folds = "metrics/fusion_meta_folds.csv"
+articles = "artifacts/processed_articles.f"
+chunks = "artifacts/retrieval_chunks.f"
+output_dir = "artifacts/oof_recomputed/query_knn"
+
+[search]
+neighbors = [10, 20, 30, 40, 50, 75, 100]
+frequency_penalties = [0.0, 0.25, 0.5, 0.75, 1.0]
+word_weights = [0.25, 0.5, 0.75]
+voting = ["similarity_sum", "count", "max"]
+
+[fusion]
+method = "linear"
+normalization = "max"
+minimum_recall_at_100 = 0.992
+
+[evaluation]
+folds = 5
+top_k = 100
+seed = 42

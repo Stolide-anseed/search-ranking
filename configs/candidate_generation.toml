@@ -1,0 +1,49 @@
+[paths]
+articles = "artifacts/processed_articles.f"
+blocks = "artifacts/article_blocks.f"
+calibration = "data/calibration.f"
+test = "data/test.f"
+cache_dir = "artifacts/retrieval"
+
+[model]
+model_id = "BAAI/bge-m3"
+revision = "5617a9f61b028005a4858fdac845db406aefb181"
+chunk_tokenizer_id = "intfloat/multilingual-e5-small"
+chunk_tokenizer_revision = "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+query_prefix = ""
+passage_prefix = ""
+trust_remote_code = false
+max_parameters = 1000000000
+batch_size_gpu = 8
+batch_size_cpu = 2
+local_files_only = false
+
+[chunking]
+max_content_tokens = 384
+overlap_tokens = 64
+
+[retrieval]
+candidate_top_k = 100
+chunk_top_k = 300
+knn_neighbors = 75
+knn_frequency_penalty = 0.5
+knn_word_weight = 0.25
+knn_voting = "similarity_sum"
+bm25_k1 = 1.5
+bm25_b = 0.75
+char_min_df = 2
+
+[fusion]
+method = "linear"
+score_normalization = "max"
+rrf_k = 60
+
+[fusion.weights]
+bm25_chunk = 0.1875
+char_tfidf = 0.0625
+dense = 1.0
+query_knn = 0.25
+
+[evaluation]
+folds = 5
+seed = 42
